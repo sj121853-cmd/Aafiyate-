@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>عافیت | Aafiyate</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma,sans-serif}
+body{background:linear-gradient(135deg,#E8F5F3,#B2DFDB);min-height:100vh;padding:20px}
+.container{max-width:800px;margin:0 auto}
+header{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#0D7377,#004D40);border-radius:20px;color:#fff;margin-bottom:30px}
+header h1{font-size:32px;margin-bottom:10px}
+.success-box{background:#4CAF50;color:#fff;padding:30px;border-radius:15px;text-align:center;margin-bottom:30px}
+.test-btn{background:#0D7377;color:#fff;border:none;padding:15px 30px;border-radius:10px;font-size:16px;cursor:pointer;margin:10px}
+.api-result{background:#fff;padding:20px;border-radius:10px;margin-top:20px;display:none}
+.api-result.show{display:block}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:30px}
+.feature-card{background:#fff;padding:20px;border-radius:15px;text-align:center}
+.feature-card i{font-size:40px;color:#0D7377;margin-bottom:10px}
+footer{text-align:center;padding:20px;color:#004D40;margin-top:30px}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1> عافیت</h1>
+        <p>Aafiyate - پلتفرم جامع سلامت</p>
+    </header>
+    <div class="success-box">
+        <h2>✅ سرور با موفقیت راه‌اندازی شد!</h2>
+        <p>بک‌اند و فرانت‌اند به درستی کار می‌کنند</p>
+    </div>
+    <div style="text-align:center">
+        <button class="test-btn" onclick="testAPI()">
+            <i class="fas fa-virus"></i> تست API سلامت
+        </button>
+    </div>
+    <div id="apiResult" class="api-result">
+        <h3 style="color:#0D7377;margin-bottom:10px">نتیجه تست:</h3>
+        <pre id="apiData" style="background:#f5f5f5;padding:15px;border-radius:8px;overflow-x:auto"></pre>
+    </div>
+    <div class="features">
+        <div class="feature-card"><i class="fas fa-user-md"></i><h3>پزشکان</h3><p>مشاوره آنلاین</p></div>
+        <div class="feature-card"><i class="fas fa-virus"></i><h3>بیماری‌ها</h3><p>اطلاعات کامل</p></div>
+        <div class="feature-card"><i class="fas fa-pills"></i><h3>داروها</h3><p>اطلاعات دارویی</p></div>
+        <div class="feature-card"><i class="fas fa-store"></i><h3>فروشگاه</h3><p>محصولات سلامت</p></div>
+    </div>
+    <footer>
+        <p>📞 09357473035 | 📧 info@aafiyate.com</p>
+        <p>© 2026 عافیت - تمامی حقوق محفوظ است</p>
+    </footer>
+</div>
+<script>
+function testAPI(){
+    fetch('/api/health').then(r=>r.json()).then(d=>{
+        document.getElementById('apiData').textContent=JSON.stringify(d,null,2);
+        document.getElementById('apiResult').classList.add('show');
+    });
+}
+</script>
+</body>
+          </html>
